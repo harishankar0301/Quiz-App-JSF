@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+    <h:head>
+        <title>Quiz App</title>
+        <h:outputStylesheet library="css" name="style.css"/>
+        <style>
+            input{
+                padding: 4px 5px;
+            }
+
+            label {
+                font-size: 25px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <center><h1>Welcome to the Quiz</h1></center>
+        <h1>#{startQuiz.resp}</h1>
+        <br/>
+
+        <center>
+            <h:form>
+                <h:panelGrid columns="3">
+                    <h:outputLabel for="nameText">
+                        <h:outputText value="Enter Name"/>
+                    </h:outputLabel>
+                    <h:inputText id="nameText" value="#{startQuiz.name}"
+                                 required="true"
+                                 requiredMessage="Please enter your name"
+
+                                 validatorMessage="Name must be fewer than 30 characters">
+                        <f:validateLength maximum="30" />   
+                    </h:inputText>
+                        <h:message for="nameText" styleClass="error" />
+
+                  
+                    <h:outputLabel for="emailText">
+                        <h:outputText value="Enter Email"/>
+                    </h:outputLabel>
+                    <h:inputText id="emailText" value="#{startQuiz.email}"
+                                 required="true"
+                                 requiredMessage="Please enter a valid e-mail address"
+                                 validatorMessage="Invalid e-mail address format">
+
+                        <f:validateRegex pattern=
+                                         "\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" />
+                    </h:inputText>
+                    <h:message for="emailText" styleClass="error" />
+                </h:panelGrid>
+                <br/>
+                <h:commandButton class="btn" id="startbtn" value="Start" action="#{startQuiz.start()}"></h:commandButton>
+                <br></br>
+                <br></br>
+                <br></br>
+
+            </h:form>
+
+            <h:form>
+                <h:commandButton class="btn" value="View Leaderboard" action="#{startQuiz.leaderboard()}">
+
+                </h:commandButton>
+            </h:form>
+        </center>
+
+
+    </h:body>
+</html>
+

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <h:outputStylesheet library="css" name="style.css"/>
+        <title>Leader board</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <style>
+           
+
+        </style>
+    </h:head>
+    <body>
+        <br/>
+
+        <center>
+
+            <h1>Quiz Leaderboard</h1>
+
+            <table id="leaderboardTable">
+                <thead>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Score</th>
+                </thead>
+
+                <tbody>
+                    <ui:repeat var="user" value="#{leaderboard.users}">
+                        <tr>
+                            <td>#{user.name}</td>
+                            <td>#{user.email}</td>
+                            <td>#{user.score}</td>
+                        </tr>
+                    </ui:repeat>
+
+                </tbody>
+
+            </table>
+            
+                        <br/>
+            <h:form>
+                <h:commandButton class="btn" value="Go to Home" action="#{quiz.home()}">
+                   
+                </h:commandButton>
+            </h:form>
+        </center>
+
+    </body>
+</html>
